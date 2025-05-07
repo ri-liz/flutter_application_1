@@ -24,7 +24,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HalamanHome extends State<HomeScreen> {
-  String inputText = "";
+  String inputEmail = "";
+  String inputNama = "";
 
   @override
   Widget build(BuildContext context) {
@@ -57,11 +58,25 @@ class _HalamanHome extends State<HomeScreen> {
             TextField(
               onChanged: (value) {
                 setState(() {
-                  inputText = value;
+                  inputEmail = value;
                 });
               },
               decoration: InputDecoration(
                 labelText: 'Masukan Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            
+            SizedBox(height: 20),
+
+            TextField(
+              onChanged: (value) {
+                setState(() {
+                  inputNama = value;
+                });
+              },
+              decoration: InputDecoration(
+                labelText: 'Masukan Nama',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -72,9 +87,13 @@ class _HalamanHome extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("hgirolrel"),
+                Text("Lupa Email?"),
                 Text(
-                  inputText,
+                  inputEmail,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  inputNama,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
@@ -88,10 +107,10 @@ class _HalamanHome extends State<HomeScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    inputText = ''; //ini untuk menghapus teks
+                    inputNama = ''; //ini untuk menghapus teks
                   });
                 },
-                child: Text('Hapus'),
+                child: Text('Masuk'),
               ),
             ),
           ],
